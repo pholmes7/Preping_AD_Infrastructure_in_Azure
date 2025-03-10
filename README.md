@@ -1,12 +1,6 @@
-
-
 <p align="center">
 <img src="https://i.imgur.com/Oa3gvSd.png" alt="Azure Virtual Network"/>
 </p>
-
-
-
-
 
 <h1> Preping AD Infrastructure in Azure </h1>
 In this tutorial, we will be creating a domain controller and spinning up an Azure Vm to help us in simulating an Active Directory environment. This tutorial is just the 1st step in creating this lab. <br />
@@ -31,7 +25,7 @@ In this tutorial, we will be creating a domain controller and spinning up an Azu
 <h2>High-Level Steps</h2>
 
 - STEP 1 - Create Resources
-- STEP 2 - Verify connectivity between VM and Domain Controller
+- STEP 2 - Edit Domain Controller 
 - STEP 3 - Install Active Directory
 - STEP 4 -
   
@@ -115,12 +109,6 @@ In this tutorial, we will be creating a domain controller and spinning up an Azu
 <img src="https://i.imgur.com/ORbhSxD.png"/>
 </p>
 
-
-
-
-
-
-
  <p>Now we will create our virtual machine for our client. We will start by going back to the "Virtual Machines" page and clicking "Create". </p>
 
 <p>
@@ -158,14 +146,54 @@ In this tutorial, we will be creating a domain controller and spinning up an Azu
 <img src="https://i.imgur.com/DWU0H06.png"/>
 </p>
 
-<p> ------------- Start Here ----------- </p>
-<h3> Step 2 - Set Up VM Using Azure</h3>
- <p>Go to www.portal.azure.com and find Virtual Machines.   See the screenshot below.</p>
-</p>
+
+<h3> Step 2 - Edit Domain Controller Settings </h3>
+
+ <p>In this step, we are going to be edit the Domain Controllers Virtual Network Interface Card (NIC) to be static. This is important because as we get into the lab, we will want the client to always to connect to the domain controller. If the domain controller's private IP is dynamic,c then there is a great chance that the IP address will change, making it hard for the client to connect successfully. We will start by clicking on our domain controller on our "Virtual Machines"page. </p>
+ 
 <p>
-<img src="https://i.imgur.com/DRGwczk.png"/>
+<img src="https://i.imgur.com/meU9lFQ.png"/>
 </p>
 
+<p> After clicking on the domain controller, on the left sidebar, click on the drop-down menu for Networking and select Network Settings. On this page,e you can see the public IP, private IP, network interface (green icon), and other things. Click on the network interface that has the green icon. </p>
+
+<p>
+<img src="https://i.imgur.com/o1FdReH.png"/>
+</p>
+
+<p> When can now see that the private IP for our domain controller is dynamic. We have to change it to static. Click on ipconfig1. </p>
+
+<p>
+<img src="https://i.imgur.com/o1FdReH.png"/>
+</p>
+
+<p> Underneath "Private IP address settings select static for the allocation. Then hit save. </p>
+
+<p>
+<img src="https://i.imgur.com/woxCVxa.png"/>
+</p>
+
+
+<p> Our next step will be to disable the firewall of the domain controller so that the client vm will be able to connect with no problems. This is not recommended in real environments as it will leave your machine open to attack. We will start by rdp'ing into the domain controller vm. </p>
+
+<p>
+<img src="https://i.imgur.com/7CWsbQk.png"
+</p>
+
+<p>
+<img src="https://i.imgur.com/mCho8ZR.png"
+</p>
+
+<p> Once you have successfully rdp'ed into the machine you should see Windows Server Manager. While it is not pictured here, you can check by right-clicking the start menu and selecting system. You should see underneath Windows specification next to edition windows server 2022 Datacenter Azure edition. If you dont see this you have messed up somewhere.  </p>
+
+
+<p> Now we will edit the firewall by right-clicking the start menu and selecting run. Type in wf.msc   </p>
+<p>
+<img src="https://i.imgur.com/iCI3Hjx.png"
+</p>
+
+
+<p> ------------- Start Here ----------- </p>
 <p>
 Click the "Create -> Azure Virtual Machine" button to begin creating the VM. Create a new Resource Group for the VM. Name your VM. Choose an availability zone that allows you to create an instance. I choose Zone 2. See the screenshot below.  
 </p>
