@@ -83,6 +83,81 @@ In this tutorial, we will be creating a domain controller and spinning up an Azu
 <p>
 <img src="https://i.imgur.com/isHrScF.png"/>
 </p>
+
+ <p>Now we will create our domain controller. We will start by going to the "Virtual Machines" page and clicking "Create". </p>
+
+<p>
+<img src="https://i.imgur.com/ZySk0R9.png"/>
+</p>
+
+ <p>We want to make sure that we have the right resource group selected. You can name the virtual machine what you would like. I named my machine DC-1. Make sure the availability zone you have selected is the same as your virtual network. We will also select "Windows Server 2022 Datacenter: Azure Edition - x64 Gen2" for our image. </p>
+
+<p>
+<img src="https://i.imgur.com/IsPpWc4.png"/>
+</p>
+
+
+<p> For image size, 2 vpus will do the job. Create a username and password for this virtual machine. Don't forget to check the box for the licensing agreement. </p>
+
+<p>
+<img src="https://i.imgur.com/tlBFach.png"/>
+</p>
+
+ <p> Next, we are going to select the networking tab at the top of the screen. We want to verify that we have the correct virtual network selected. We can click "Review + create".  </p>
+
+<p>
+<img src="https://i.imgur.com/GLJnStA.png"/>
+</p>
+
+ <p> You should see this screen once the virtual machine has been created.  </p>
+
+<p>
+<img src="https://i.imgur.com/ORbhSxD.png"/>
+</p>
+
+
+
+
+
+
+
+ <p>Now we will create our virtual machine for our client. We will start by going back to the "Virtual Machines" page and clicking "Create". </p>
+
+<p>
+<img src="https://i.imgur.com/ZySk0R9.png"/>
+</p>
+
+ <p>We want to make sure that we have the right resource group selected. You can name the virtual machine what you would like. I named my machine client-1. Make sure the availability zone you have selected is the same as your virtual network. We will also select "Windows 10 Pro, version 22H2 - x64 Gen2" for our image. </p>
+
+<p>
+<img src="https://i.imgur.com/b17rbiH.png"/>
+</p>
+
+
+<p> For image size, 2 vpus will do the job. Create a username and password for this virtual machine. Don't forget to check the box for the licensing agreement. </p>
+
+<p>
+<img src="https://i.imgur.com/Nw5SqGr.png"/>
+</p>
+
+ <p> Next, we are going to select the networking tab at the top of the screen. We want to verify that we have the correct virtual network selected. We can click "Review + create".  </p>
+
+<p>
+<img src="https://i.imgur.com/ersyuvQ.png"/>
+</p>
+
+ <p> You should see this screen once the virtual machine has been created.  </p>
+
+<p>
+<img src="https://i.imgur.com/TbsWul3.png"/>
+</p>
+
+ <p> Let's go back to the "virtual Machines" homepage. You should see both VMs there and they should be running  </p>
+
+<p>
+<img src="https://i.imgur.com/DWU0H06.png"/>
+</p>
+
 <p> ------------- Start Here ----------- </p>
 <h3> Step 2 - Set Up VM Using Azure</h3>
  <p>Go to www.portal.azure.com and find Virtual Machines.   See the screenshot below.</p>
