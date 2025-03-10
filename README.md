@@ -2,8 +2,8 @@
 <img src="https://i.imgur.com/Oa3gvSd.png" alt="Azure Virtual Network"/>
 </p>
 
-<h1> Preping AD Infrastructure in Azure </h1>
-In this tutorial, we will be creating a domain controller and spinning up an Azure Vm to help us in simulating an Active Directory environment. This tutorial is just the 1st step in creating this lab. <br />
+<h1> Prepping AD Infrastructure in Azure </h1>
+In this tutorial, we will be creating a domain controller and spinning up an Azure VM to help us in simulating an Active Directory environment. This tutorial is just the 1st step in creating this lab. <br />
 
 <h2>Environments and Technologies Used</h2>
 
@@ -27,7 +27,7 @@ In this tutorial, we will be creating a domain controller and spinning up an Azu
 - STEP 1 - Create Resources
 - STEP 2 - Edit Domain Controller 
 - STEP 3 - Edit Client Configuration
-- STEP 4 -
+  
   
 <h2>Instillation Steps</h2>
 <h3> STEP 1 - Create Resources </h3>
@@ -52,7 +52,7 @@ In this tutorial, we will be creating a domain controller and spinning up an Azu
 </p>
 
 
- <p> While the resource group is being created we will move on to creating the Virtual Network. Start by going to the "Virtual Networks" page and click "Create". </p>
+ <p> While the resource group is being created, we will move on to creating the Virtual Network. Start by going to the "Virtual Networks" page and clicking "Create". </p>
 
 <p>
 <p>
@@ -78,7 +78,7 @@ In this tutorial, we will be creating a domain controller and spinning up an Azu
 <img src="https://i.imgur.com/isHrScF.png"/>
 </p>
 
- <p>Now we will create our domain controller. We will start by going to the "Virtual Machines" page and clicking "Create". </p>
+ <p>Now, we will create our domain controller. We will start by going to the "Virtual Machines" page and clicking "Create". </p>
 
 <p>
 <img src="https://i.imgur.com/ZySk0R9.png"/>
@@ -109,7 +109,7 @@ In this tutorial, we will be creating a domain controller and spinning up an Azu
 <img src="https://i.imgur.com/ORbhSxD.png"/>
 </p>
 
- <p>Now we will create our virtual machine for our client. We will start by going back to the "Virtual Machines" page and clicking "Create". </p>
+ <p>Now, we will create our virtual machine for our client. We will start by going back to the "Virtual Machines" page and clicking "Create". </p>
 
 <p>
 <img src="https://i.imgur.com/ZySk0R9.png"/>
@@ -140,7 +140,7 @@ In this tutorial, we will be creating a domain controller and spinning up an Azu
 <img src="https://i.imgur.com/TbsWul3.png"/>
 </p>
 
- <p> Let's go back to the "virtual Machines" homepage. You should see both VMs there and they should be running  </p>
+ <p> Let's go back to the "Virtual Machines" homepage. You should see both VMs there, and they should be running  </p>
 
 <p>
 <img src="https://i.imgur.com/DWU0H06.png"/>
@@ -149,19 +149,19 @@ In this tutorial, we will be creating a domain controller and spinning up an Azu
 
 <h3> Step 2 - Edit Domain Controller Settings </h3>
 
- <p>In this step, we are going to be edit the Domain Controllers Virtual Network Interface Card (NIC) to be static. This is important because as we get into the lab, we will want the client to always to connect to the domain controller. If the domain controller's private IP is dynamic,c then there is a great chance that the IP address will change, making it hard for the client to connect successfully. We will start by clicking on our domain controller on our "Virtual Machines"page. </p>
+ <p>In this step, we are going to edit the Domain Controllers Virtual Network Interface Card (NIC) to be static. This is important because as we get into the lab, we will want the client to always to connect to the domain controller. If the domain controller's private IP is dynamic, then there is a great chance that the IP address will change, making it hard for the client to connect successfully. We will start by clicking on our domain controller on our "Virtual Machines" page. </p>
  
 <p>
 <img src="https://i.imgur.com/meU9lFQ.png"/>
 </p>
 
-<p> After clicking on the domain controller, on the left sidebar, click on the drop-down menu for Networking and select Network Settings. On this page,e you can see the public IP, private IP, network interface (green icon), and other things. Click on the network interface that has the green icon. </p>
+<p> After clicking on the domain controller, on the left sidebar, click on the drop-down menu for Networking and select Network Settings. On this page, you can see the public IP, private IP, network interface (green icon), and other things. Click on the network interface that has the green icon. </p>
 
 <p>
 <img src="https://i.imgur.com/o1FdReH.png"/>
 </p>
 
-<p> When can now see that the private IP for our domain controller is dynamic. We have to change it to static. Click on ipconfig1. </p>
+<p> We can now see that the private IP for our domain controller is dynamic. We have to change it to static. Click on ipconfig1. </p>
 
 <p>
 <img src="https://i.imgur.com/o1FdReH.png"/>
@@ -174,7 +174,7 @@ In this tutorial, we will be creating a domain controller and spinning up an Azu
 </p>
 
 
-<p> Our next step will be to disable the firewall of the domain controller so that the client vm will be able to connect with no problems. This is not recommended in real environments as it will leave your machine open to attack. We will start by rdp'ing into the domain controller vm. </p>
+<p> Our next step will be to disable the firewall of the domain controller so that the client vm will be able to connect with no problems. This is not recommended in real environments as it will leave your machine open to attack. We will start by RDPing into the domain controller VM. </p>
 
 <p>
 <img src="https://i.imgur.com/7CWsbQk.png"
@@ -184,7 +184,7 @@ In this tutorial, we will be creating a domain controller and spinning up an Azu
 <img src="https://i.imgur.com/mCho8ZR.png"
 </p>
 
-<p> Once you have successfully rdp'ed into the machine you should see Windows Server Manager. While it is not pictured here, you can check by right-clicking the start menu and selecting system. You should see underneath Windows specification next to edition windows server 2022 Datacenter Azure edition. If you dont see this you have messed up somewhere.  </p>
+<p> Once you have successfully RDP'ed into the machine, you should see Windows Server Manager. While it is not pictured here, you can check by right-clicking the start menu and selecting system. You should see underneath Windows specification next to edition windows server 2022 Datacenter Azure edition. If you dont see this, you have messed up somewhere.  </p>
 
 
 <p> Now we will edit the firewall by right-clicking the start menu and selecting run. Type in wf.msc   </p>
@@ -209,26 +209,26 @@ In this tutorial, we will be creating a domain controller and spinning up an Azu
 
 <h3> Step 3 - Edit Client Configuration </h3>
 
-<p> Now that we have disabled the domain controllers firewall, we need to edit our client to automatically use the domain controller as its DNS server. We will start by locating the private ip address of the domain controller. You can get there by going to the Virtual Machines page and clicking on your domain controller vm. I have highlighted my private IP in the picture below. </p>
+<p> Now that we have disabled the domain controller's firewall, we need to edit our client to automatically use the domain controller as its DNS server. We will start by locating the private IP address of the domain controller. You can get there by going to the Virtual Machines page and clicking on your domain controller VM. I have highlighted my private IP in the picture below. </p>
 
 <p>
 <img src="https://i.imgur.com/IXALsLf.png"
 </p>
 
-<p> With the domain controllers private IP we can navigate to our client VM.  On the left sidebar, click on the drop-down menu for Networking and select Network Settings. On this page, you can see the public IP, private IP, network interface (green icon), and other things. Click on the network interface that has the green icon.  </p>
+<p> With the domain controller's private IP, we can navigate to our client VM.  On the left sidebar, click on the drop-down menu for Networking and select Network Settings. On this page, you can see the public IP, private IP, network interface (green icon), and other things. Click on the network interface that has the green icon.  </p>
 
 <p>
 <img src="https://i.imgur.com/TcSzn97.png"
 </p>
 
-<p> Select DNS servers from the life sidebar. Click the custom option and enter the private IP address you got from your domain controller. This means that whenever we look something up on the internet it will use the domain controller as the DNS server. Make sure you save your settings. </p>
+<p> Select DNS servers from the life sidebar. Click the custom option and enter the private IP address you got from your domain controller. This means that whenever we look something up on the internet, it will use the domain controller as the DNS server. Make sure you save your settings. </p>
 
 <p>
 <img src="https://i.imgur.com/L1UUYCk.pngg"
 </p>
 
 
-<p> To make sure the changes saved, restart your client machine.  </p>
+<p> To make sure the changes are saved, restart your client machine.  </p>
 
 <p>
 <img src="https://i.imgur.com/0EcPJ0O.png"
@@ -241,7 +241,7 @@ In this tutorial, we will be creating a domain controller and spinning up an Azu
 <img src="https://i.imgur.com/ewiaEw5.png"
 </p>
 
-<p> Now we are going to ping the domain controller's private IP address. Type Powershell in the search bar of your machine. </p>
+<p> Now, we are going to ping the domain controller's private IP address. Type Powershell in the search bar of your machine. </p>
 
 <p>
 <img src="https://i.imgur.com/HMaRghj.png"
