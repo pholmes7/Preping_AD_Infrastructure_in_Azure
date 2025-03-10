@@ -26,7 +26,7 @@ In this tutorial, we will be creating a domain controller and spinning up an Azu
 
 - STEP 1 - Create Resources
 - STEP 2 - Edit Domain Controller 
-- STEP 3 - Install Active Directory
+- STEP 3 - Edit Client Configuration
 - STEP 4 -
   
 <h2>Instillation Steps</h2>
@@ -207,84 +207,58 @@ In this tutorial, we will be creating a domain controller and spinning up an Azu
 <img src="https://i.imgur.com/eC2C6OW.png"
 </p>
 
-<p> ------------- Start Here ----------- </p>
-<p>
-Click the "Create -> Azure Virtual Machine" button to begin creating the VM. Create a new Resource Group for the VM. Name your VM. Choose an availability zone that allows you to create an instance. I choose Zone 2. See the screenshot below.  
-</p>
+<h3> Step 3 - Edit Client Configuration </h3>
+
+<p> Now that we have disabled the domain controllers firewall, we need to edit our client to automatically use the domain controller as its DNS server. We will start by locating the private ip address of the domain controller. You can get there by going to the Virtual Machines page and clicking on your domain controller vm. I have highlighted my private IP in the picture below. </p>
 
 <p>
-<img src="https://i.imgur.com/wUW2Kgi.png"/>
+<img src="https://i.imgur.com/IXALsLf.png"
 </p>
+
+<p> With the domain controllers private IP we can navigate to our client VM.  On the left sidebar, click on the drop-down menu for Networking and select Network Settings. On this page, you can see the public IP, private IP, network interface (green icon), and other things. Click on the network interface that has the green icon.  </p>
 
 <p>
-  Choose a Windows 10 version as your Image. For the size, 2 vcpus and 4GB will do.
+<img src="https://i.imgur.com/TcSzn97.png"
 </p>
+
+<p> Select DNS servers from the life sidebar. Click the custom option and enter the private IP address you got from your domain controller. This means that whenever we look something up on the internet it will use the domain controller as the DNS server. Make sure you save your settings. </p>
 
 <p>
-<img src="https://i.imgur.com/IscBjnC.png"/>
+<img src="https://i.imgur.com/L1UUYCk.pngg"
 </p>
+
+
+<p> To make sure the changes saved, restart your client machine.  </p>
 
 <p>
-  For the Username and Password you can create your custom information, just record it personally. Then select “Review and Create”, once it passes validation select “Create” at the bottom.
+<img src="https://i.imgur.com/0EcPJ0O.png"
 </p>
+
+
+<p> We will now rdp into our client machine. Grab the public IP for your client to log into it.    </p>
 
 <p>
-<img src="https://i.imgur.com/Z5dmmm6.png"/>
+<img src="https://i.imgur.com/ewiaEw5.png"
 </p>
-<br />
 
-<h3> Step 3 - Locating IP Through VM </h3>
-<p> Now that we have set up the Virtual Machine we will be connecting to it using the application “Remote Desktop Connection” or RDP. We will input the IP address for the VM that was assigned after we created the VM (see 1st screenshot below) and then input the credentials we set when creating the VM. (see 2nd screenshot) </p>
+<p> Now we are going to ping the domain controller's private IP address. Type Powershell in the search bar of your machine. </p>
 
 <p>
-<img src="https://i.imgur.com/GYz4vSd.png"/>
+<img src="https://i.imgur.com/HMaRghj.png"
 </p>
+
+<p> Type "ping" and "domain controller private IP". You should get a similar screen below. If you get an error, your domain controller and client could be in different virtual networks, or the domain controller's firewall could still be on. </p>
 
 <p>
-<img src="https://i.imgur.com/IZvQ9g7.png"/>
+<img src="https://i.imgur.com/EH4JqRB.png"
 </p>
 
-
-<p>Once logged in, we will open the web browser and again look up www.whatismyipaddress.com. Take note of the IP address of the VM. This is a different IP from your local machine's IP. </p>
+<p> Type "ipconfig /all". We are looking to make sure the domain controller's private IP address is showing up as the DNS Server for the client. Your screen should look like the one below. </p>
 
 <p>
-<img src="https://i.imgur.com/gNYpFFR.png"/>
+<img src="https://i.imgur.com/9BvSX75.png"
 </p>
-
-<h3> Step 4 - Setup VPN </h3>
-
-<p> Using the local computer go to protonvpn.com and create a free account.  Once you are logged into your newly created account, copy the URL from the Proton VPN website and then paste the URL to the VM web browser.</p>
-<p> You will have to log into Proton VPN again.
- <p>
-<img src="https://i.imgur.com/EbNLNaY.png"/>
-</p>
-
-<p> Navigate to Downloads. Select Download for Windowns 11/10 (x64). Begin the Download process. </p>
- <p>
-<img src="https://i.imgur.com/MQAVEDm.png"/>
- </p>
-  <p>
-<img src=" https://i.imgur.com/Mh4u89R.png"/>
- </p>
-
-<p> After successfully downloading Proton VPN you will be greeted with a "Welcome on Board" screen. </p>
-
- <p>
-<img src="https://i.imgur.com/fEoVBPU.png"/>
- </p>
-
-<h3> Step 5 - Connecting to VPN Through VM </h3>
-
-<p> After exiting the "Welcome on Board" message. Click on the button that says, "Quick Connect" on the left-hand side. Proton VPN will then assign a new IP for your machine. </p>
- <p>
-<img src="https://i.imgur.com/3e7AyBT.png"/>
- </p>
-
-<h3> STEP 6 - Locating IP Through VPN </h3>
- <p> Now we will open the web browser and again look up www.whatismyipaddress.com. Take note of the new IP address of the VM. This is a different IP from your local machine's IP and the original IP address of the VM. </p>
-  <p>
-<img src="https://i.imgur.com/RvibhMx.png">
- </p>
+  
 
  <h2>Conclusion</h2>
-<p> Congrats! You have successfully used a VPN within a VM. This lab highlights the power a VPN has in terms of privacy and how it affects IP addresses. </p>
+<p> Congrats! You have successfully set up the domain controller and client vm for this active directory lab. Look for part two titled ".....". </p>
