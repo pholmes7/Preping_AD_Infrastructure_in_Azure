@@ -192,6 +192,20 @@ In this tutorial, we will be creating a domain controller and spinning up an Azu
 <img src="https://i.imgur.com/iCI3Hjx.png"
 </p>
 
+<p> On the Domain Profile, select Off for the Firewall state. On the Public Profile, select Off for the firewall state.    </p>
+
+<p>
+<img src="https://i.imgur.com/ObmOPRd.png"
+</p>
+<p>
+<img src="https://i.imgur.com/7t9NeEK.png"
+</p>
+
+<p> After you have saved your changes by clicking Apply. The screen should look similar to the picture below.  </p>
+
+<p>
+<img src="https://i.imgur.com/eC2C6OW.png"
+</p>
 
 <p> ------------- Start Here ----------- </p>
 <p>
